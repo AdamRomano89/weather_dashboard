@@ -43,7 +43,12 @@ function kvToFa(kelvin){
 return ((kelvin-273.15)*1.8)+32	
 }
 
-
+inputEl.addEventListener("keyup", function(e) {
+  if (e.keyCode === 13) {
+    e.preventDefault();
+    btnEl.click();
+  }
+});
 
 function renderCities(){
   citiesArea.innerHTML = ""

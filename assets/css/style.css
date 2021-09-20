@@ -33,3 +33,18 @@
   background-color: black!important;
 }
 
+.cityTitle{
+  display: inline;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.info span{
+  font-size: 1.2rem;
+  font-weight: bold;
+  display: inline;
+}
+
+.info img{
+  display: inline;
+}

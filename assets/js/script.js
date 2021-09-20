@@ -94,9 +94,9 @@ function getWeather(cityName){
 }
 
 function viewData(weather){
-  tempEl.innerHTML = "Temp: " + Math.floor(kvToFa (weather.main.temp));
-  windEl.innerHTML = "Wind: " + weather.wind.speed
-  humidityEl.innerHTML = "Humidity: " + weather.main.humidity
+  tempEl.innerHTML = "Temp: " + Math.floor(kvToFa (weather.main.temp)) + "°F";
+  windEl.innerHTML = "Wind: " + weather.wind.speed + " MPH"
+  humidityEl.innerHTML = "Humidity: " + weather.main.humidity + "%"
   cityEl.innerHTML = weather.name
   var lat = weather.coord.lat
   var lon = weather.coord.lon;
@@ -154,13 +154,13 @@ function forecastData(fiveDays){
     img.setAttribute("src", "http://openweathermap.org/img/w/" + fiveDays.list[indexDay].weather[0].icon +".png")
     boxes[i].append(img);
     var temp = document.createElement("p")
-    temp.innerHTML = "Temp:"  + Math.floor(kvToFa(fiveDays.list[indexDay].main.temp));
+    temp.innerHTML = "Temp: " + Math.floor(kvToFa(fiveDays.list[indexDay].main.temp)) + "°F";
     boxes[i].append(temp);
     var humidity = document.createElement("p")
-    humidity.innerHTML = "Humidity: " + fiveDays.list[indexDay].main.humidity
+    humidity.innerHTML = "Humidity: " + fiveDays.list[indexDay].main.humidity + "%"
     boxes[i].append(humidity);
     var wind = document.createElement("p")
-    wind.innerHTML = "Wind: " + fiveDays.list[indexDay].wind.speed
+    wind.innerHTML = "Wind: " + fiveDays.list[indexDay].wind.speed + " MPH"
     boxes[i].append(wind);
   }
 }

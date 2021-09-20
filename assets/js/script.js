@@ -1,3 +1,4 @@
+// Genral Variables
 var inputEl = document.querySelector('.input');
 var btnEl = document.querySelector('.searchbtn');
 var clearBtn = document.querySelector('.clearbtn')
@@ -17,7 +18,7 @@ var weatherApi2 = "https://api.openweathermap.org/data/2.5/forecast"
 var uvApi = "https://api.openweathermap.org/data/2.5/onecall"
 var apiKey = "91c21922d0972d91962491f9639fd762"
 
-
+// Adding function for event listner
 clearBtn.addEventListener("click", function(){
   localStorage.removeItem("cities")
   searches = []
@@ -39,10 +40,12 @@ if (inputVal !=""){
 }
 });
 
+// Converting KV to FA
 function kvToFa(kelvin){
 return ((kelvin-273.15)*1.8)+32	
 }
 
+// Reventing normal behavior + adding a click event
 inputEl.addEventListener("keyup", function(e) {
   if (e.keyCode === 13) {
     e.preventDefault();
@@ -50,6 +53,7 @@ inputEl.addEventListener("keyup", function(e) {
   }
 });
 
+// Adding CSS to Cities list
 function renderCities(){
   citiesArea.innerHTML = ""
   for(var i = 0; i< searches.length ; i++) {
@@ -68,6 +72,7 @@ function renderCities(){
   }
 }
 
+// Removing CSS from cities list
 function removeActiveClass(){
   var allCities = document.querySelectorAll(".cities-list span")
   allCities.forEach(function(city){
@@ -75,15 +80,17 @@ function removeActiveClass(){
   })
   }
 
+// Targeting information in API 1
 renderCities()
 if(searches.length > 0 ) {
-  var lastCity = searches[0] // [ "eeeee", "ggggg", "ssss"] // searches[2]
+  var lastCity = searches[0]
   document.querySelector('.cities-list span:first-child').classList.add('active')
   getWeather(lastCity);
 } else {
   wrapper.style.display = "none"
 }
 
+// Targeting information in API 2
 function getWeather(cityName){
   axios.get(weatherApi + "?q=" + cityName + "&appid=" + apiKey)
     .then(function(response){
@@ -93,6 +100,7 @@ function getWeather(cityName){
     })
 }
 
+// Setting information from API
 function viewData(weather){
   tempEl.innerHTML = "Temp: " + Math.floor(kvToFa (weather.main.temp)) + "°F";
   windEl.innerHTML = "Wind: " + weather.wind.speed + " MPH"
@@ -110,6 +118,7 @@ function viewData(weather){
   getForeCast(weather)
 }
 
+// Getting information for lat and lon
 function getUvIndex(lat, lon) {
   axios.get(uvApi + "?lat=" + lat + "&lon=" + lon + "&appid=" + apiKey)
   .then(function(response){
@@ -138,6 +147,7 @@ function getForeCast(weather) {
 }
 
 
+// Logic and moment js for foveDay function
 function forecastData(fiveDays){
   for(var i = 0; i < boxes.length; i++){
     boxes[i].innerHTML = ""

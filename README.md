@@ -17,8 +17,8 @@ Weather Dashboard: [https://adamromano89.github.io/weather_dashboard/]
 ![Project-Picture](assets/images/screenshot.png)
 
 ## Authors, Acknowledgement, & Resources 🤝
-Adam Romano - Full Stack Web Developer
-Hamza Nabil - Senior Software Engineer
+##### Adam Romano - Full Stack Web Developer
+##### Hamza Nabil - Senior Software Engineer
 
 ### Teaching Crew at University Of Texas 🎉
 [UT](https://www.utexas.edu/)

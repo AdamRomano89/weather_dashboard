@@ -28,8 +28,8 @@ clearBtn.addEventListener("click", function(){
 
 btnEl.addEventListener("click", function() {
   var inputVal = inputEl.value
+  if (inputVal !=""){
   wrapper.style.display="block"
-if (inputVal !=""){
   getWeather(inputVal) // fetch api
   searches.unshift(inputVal); // [austin , cairo]
   renderCities()

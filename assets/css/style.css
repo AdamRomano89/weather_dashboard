@@ -3,6 +3,10 @@
   justify-content: space-between;
 }
 
+.forecastboxes div{
+  margin: 3px;
+}
+
 .box{
   width: 19%;
   padding: 7px;
